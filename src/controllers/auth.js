@@ -53,7 +53,7 @@ export const login = async (req, res) => {
       return res.status(400).json({ status: "error", msg: "login failed" });
     }
 
-    const claims = { username: auth.username };
+    const claims = { username: auth.username, userId: auth._id };
     const access = jwt.sign(claims, process.env.ACCESS_SECRET, {
       expiresIn: "20m",
       jwtid: uuidv4(),

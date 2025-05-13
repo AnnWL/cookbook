@@ -12,6 +12,7 @@ const isSignedIn = (req, res, next) => {
 
   if (token) {
     try {
+      console.log(process.env.ACCESS_SECRET);
       const decoded = jwt.verify(token, process.env.ACCESS_SECRET);
       console.log("Decoded token:", decoded);
       req.decoded = decoded;

@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const getAllFoods = async (req, res) => {
   try {
+    console.log(req.decoded);
     const userId = req.decoded.userId;
     const user = await UsersModel.findById(userId);
 
